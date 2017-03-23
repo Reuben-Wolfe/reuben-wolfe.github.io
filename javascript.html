@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="_assets/css/mystyle.css" media="screen">
+        <link type="text/javascript" rel="stylesheet" href="_assets/JS/java.js" media="screen">
+		<meta charset="utf-8">
+		<title>Web Portfolio: Reuben Wolfe's Javascript Page</title>
+		<link rel="shortcut icon" href="_assets/images/favicon.ico" type="image/x-icon" />
+    
+    <script> 
+              function showAlert(){ 
+        var myText = "Well come to the darkness! It's propably a lot less than you expected.";
+        alert (myText);
+        }
+          function toggleClock() { 
+    // get the clock 
+    var myClock = document.getElementById('clock');
+
+    // get the current value of the clock's display property 
+    var displaySetting = myClock.style.display;
+
+    // also get the clock button, so we can change what it says 
+    var clockButton = document.getElementById('clockButton');
+        
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') { 
+      // clock is visible. hide it
+      myClock.style.display = 'none';
+      // change button text
+      clockButton.innerHTML = 'Show clock';
+    }
+    else { 
+      // clock is hidden. show it 
+      myClock.style.display = 'block';
+      // change button text
+      clockButton.innerHTML = 'Hide clock';
+    }
+  }  
+        function updateTime() { 
+
+         // add leading zero's to minutes and seconds
+        if (minutes < 10) { 
+      minutes = '0' + minutes;
+      }
+        if (seconds < 10) { 
+        seconds = '0' + seconds;
+        }       
+
+  // get time of day (am or pm) 
+        if (hours >= 12 && hours < 24) { 
+        var timeOfDay = 'pm';
+      }
+        else { 
+        var timeOfDay = 'am'; 
+        }
+        
+  // convert hours from 24-hour time to 12-hour time
+        if (hours > 12) { 
+        hours = hours - 12;
+        }
+
+        // get all parts of the current time
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // join them together into a character string named "currentTime"
+        var currentTime = hours + ':' + minutes + ':' + seconds + '  ' + timeOfDay;    
+    
+        // get the clock div 
+        var myClock = document.getElementById('clock');
+    
+        // write the currentTime string to the clock div
+        myClock.innerHTML = currentTime;
+
+        }
+    </script>
+
+	</head>
+
+	<body onload="setInterval('updateTime()',1000)">
+    
+		<button onclick="showAlert()">Show alert</button>
+
+		<button onclick="toggleClock()" id="clockButton">Show clock</button>
+
+		<div id="clock">
+			
+		</div>
+
+		<h1> <img src="_assets/images/banner.png" width="950" height="350" style="border:none"  alt="This is a dark forest with a shadow deer in the center.">  </h1>
+
+			<div class="info">
+			<ul> 
+				<li>Reuben Wolfe</li>
+				<li> <a href="mailto:reuben.216338@nv.ccsd.net"> </a> <a href="_assets/images/emailbutton.png">
+				<img src="_assets/images/emailbutton.png" width="50" height="50" style="border:none" alt="reuben.216338@nv.ccsd.net">
+			</a></li>
+			</ul>
+		</div>
+		<div class="info">
+			<ul>
+				<li>Web Design and Development I</li>
+				<li>Mrs. Cindi Chang</li>
+				<li><a href ="http://swcta.net/">Southwest Career and Techical Achademy </a></li>
+				<li>2016-2017</li>
+			</ul>
+		</div>
+		<nav>
+			<div id="navigation">
+				<ul>
+					<li> <a href ="index.html"> Home</a> </li>
+					<li> <a href ="accessibility.html"> Accessibility</a> </li>
+					<li> <a href ="usability.html"> Usability</a> </li>
+					<li> <a href ="graphics.html"> Graphics</a> </li>
+					<li> <a href ="javascript.html"> Javascript</a> </li>
+					<li> <a href ="tools.html"> Tools</a> </li>
+					<li> <a href ="video.html"> Video</a> </li>
+				</ul>
+			</div>
+		</nav>
+      <div id="selectorBox">
+        <form class="cart" id="book-cart">
+          <div class="e-furnace">
+            <h2>Escape from Furnace series </h2>
+            <p>This is a thrilling young adult 5 part series writen by Alexander Gordon Smith</p>
+            <div class="info">
+              <span> Price: $56.34 for full series</span>
+            </div>
+        
+            <div class="order">
+              <label for="furnace">Quantity desired:</label>
+              <input type="number" min="0" id="furnace" size="3" placeholder="0">
+            </div>
+          </div>
+
+          <div class="fury">
+              <h2> The Fury </h2>
+              <p>This is a thrilling young adult novel writen by Alexander Gordon Smith</p>
+        
+              <div class="info">
+                <span> Price: $13.36/book</span>
+              </div>
+
+              <div class="order">
+                <label for="the-fury">Quantity desired:</label>
+                <input type="number" min="0" id="the-fury" size="3" placeholder="0">
+                </div>
+          </div>
+
+          <div class="marker">
+              <h2> Bookmarks </h2>
+              <p>Simple bookmarks that you can use!</p>
+        
+              <div class="info">
+                <span> Price: $0.50/book</span>
+              </div>
+
+              <div class="order">
+                <label for="bookmark">Quantity desired:</label>
+                <input type="number" min="0" id="bookmark" size="3" placeholder="0">
+                </div>
+          </div>
+
+          <div class="group-state">
+              <label for="s-state">State (required):</label>
+              <select id="s-state" required >
+                <option value="">- select -</option>
+                <option value="CA">California (7.5% tax)</option>
+                <option value="IL">Illinois</option>
+                <option value="NH">New Hampshire</option>
+                <option value="PA">Pennsylvania</option>
+              </select>
+          </div>
+          <div class="group method">
+          <label for="r-method-pickup">Shipping and Handling:</label><br>
+          <input type="radio" value="pickup" name="r_method" id="r-method-pickup" checked> <label for="r-method-pickup">Pickup (free)</label><br>
+          
+          <input type="radio" value="usps" name="r_method" id="r-method-usps"> <label for="r-method-usps">US Mail ($2/item)</label><br>
+            
+          <input type="radio" value="ups" name="r_method" id="r-method-ups"> <label for="r-method-ups">UPS ($3/item)</label>
+                    </div>
+        
+          <div class="group special">
+            <label for="c-special-gift">Special:</label><br>
+            <input type="checkbox" value="YES" name="c-special-gift" id="c-special-gift"> <label for="c-special-gift">This is a gift (include a card)</label><br>
+            
+                        <input type="checkbox" value="YES" name="c-special-recipes" id="c-special-recipes"> <label for="c-special-recipes">Include the recipe (free!)</label>
+                    </div>
+        
+                    <div class="group notes">
+                        <label for="txt-notes">Other notes:</label><br>
+                        
+                        <textarea name="txt-notes" id="txt-notes" rows="2" placeholder="Any other comments (does not affect estimate)"></textarea>
+                    </div>
+        
+                    <div class="group calc">
+                        <p>
+                        <label for="btn-estimate">Click to estimate:</label><br>
+                        <input type="submit" value="Estimate Total" id="btn-estimate">
+                        <input type="text" id="txt-estimate" placeholder="$0.00">
+                        </p>
+            
+                        <div id="results"></div>
+                    </div>
+        </form>
+      </div>
+	</body>
+</html> 
